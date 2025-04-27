@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Calculadora de Estadia no Pátio</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    header {
+      width: 100%;
+      background-color: #007bff;
+      padding: 10px 20px;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+    }
+    header img.logo {
+      height: 40px;
+      width: auto;
+    }
+    .banner {
+      max-width: 100%;
+      max-height: 300px;
+      margin: 20px 0;
+      object-fit: contain;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .container {
+      background: white;
+      padding: 30px 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 600px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 24px;
+    }
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: bold;
+      color: #555;
+    }
+    select, input[type="number"] {
+      width: 100%;
+      padding: 10px 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #007bff;
+      border: none;
+      border-radius: 4px;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .result {
+      margin-top: 24px;
+      font-size: 20px;
+      font-weight: bold;
+      color: #222;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <img src="banner.png" alt="Banner" class="banner" />
+  <div class="container">
+    <h1>Calculadora de Estadia no Pátio</h1>
+    <form id="calcForm">
+      <label for="vehicleType">Tipo de Veículo:</label>
+      <select id="vehicleType" required>
+        <option value="" disabled selected>Selecione o tipo de veículo</option>
+        <option value="2-3">Veículos de 2 a 3 rodas</option>
+        <option value="under3500">Veículos inferiores a 3.500kg</option>
+        <option value="over3500">Veículos acima de 3.500kg</option>
+      </select>
+
+      <label for="days">Quantidade de dias no pátio:</label>
+      <input type="number" id="days" min="1" required placeholder="Digite a quantidade de dias" />
+
+      <button type="submit">Calcular</button>
+    </form>
+    <div class="result" id="result"></div>
+  </div>
+
+  <div class="info-box">
+    <p><strong>PIRAPORA REMOÇÃO E GUARDA DE VÉICULOS LTDA (Filial)</strong><br />
+    CNPJ: 51.634.059/0001-72</p>
+  </div>
+
+  <div class="info-box address-box">
+    <p><span class="location-icon">📍</span> <a href="https://www.google.com/maps/search/?api=1&query=Rua+Cuiaba,+361,+São+Geraldo+Pirapora/MG+CEP:+39276-266" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">Rua Cuiaba, 361, São Geraldo Pirapora/MG CEP: 39276-266</a></p>
+  </div>
+
+  <div class="info-box schedule-box">
+    <p><span class="schedule-icon">⏰</span> Retirada de veículos: Segunda à Sexta-Feira<br />
+    de 09:00 h às 12:00h e das 14:00h às 17:00 h</p>
+    <p><span class="phone-icon">📞</span> Telefone: <a href="https://wa.me/5538999989789" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none;">(38)9 9998 9789</a></p>
+  </div>
+
+  <style>
+    .info-box {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 600px;
+      width: 100%;
+      box-sizing: border-box;
+      margin: 20px auto 40px auto;
+      font-size: 16px;
+      color: #333;
+      text-align: center;
+    }
+    .address-box {
+      margin-top: 10px;
+    }
+    .location-icon, .schedule-icon, .phone-icon {
+      margin-right: 8px;
+      vertical-align: middle;
+      font-size: 18px;
+    }
+    .schedule-box {
+      margin-top: 10px;
+    }
+  </style>
+
+  <style>
+    .info-box {
+      background: white;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      max-width: 600px;
+      width: 100%;
+      box-sizing: border-box;
+      margin: 20px auto 40px auto;
+      font-size: 16px;
+      color: #333;
+      text-align: center;
+    }
+    .address-box {
+      margin-top: -20px;
+    }
+    .location-icon {
+      margin-right: 8px;
+      vertical-align: middle;
+      font-size: 18px;
+    }
+  </style>
+
+  <script>
+    document.getElementById('calcForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const vehicleType = document.getElementById('vehicleType').value;
+      const days = parseInt(document.getElementById('days').value, 10);
+
+      if (!vehicleType || isNaN(days) || days < 1) {
+        document.getElementById('result').textContent = 'Por favor, preencha todos os campos corretamente.';
+        return;
+      }
+
+      let fixedFee = 0;
+      let dailyRate = 0;
+
+      switch(vehicleType) {
+        case '2-3':
+          fixedFee = 193.59;
+          dailyRate = 33.19;
+          break;
+        case 'under3500':
+          fixedFee = 304.21;
+          dailyRate = 55.31;
+          break;
+        case 'over3500':
+          fixedFee = 403.76;
+          dailyRate = 66.37;
+          break;
+        default:
+          document.getElementById('result').textContent = 'Tipo de veículo inválido.';
+          return;
+      }
+
+      const total = fixedFee + (dailyRate * days);
+      document.getElementById('result').innerHTML = 
+        `Valor total: <strong>R$ ${total.toFixed(2)}</strong><br />
+         Remoção: R$ ${fixedFee.toFixed(2)}<br />
+         Diária: R$ ${dailyRate.toFixed(2)} x ${days} dia(s)`;
+    });
+  </script>
+
+  <div class="info-box auction-box">
+    <p><span class="cool-icon">😎</span> <a href="https://leilao.detran.mg.gov.br/pre-arrematantes/cadastrar" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: none; font-weight: bold;">Acompanhe nossos leilões.</a></p>
+    <ul style="list-style: none; padding-left: 0; margin-top: 10px; text-align: left; max-width: 600px; margin-left: auto; margin-right: auto;">
+      <li>1º passo: Cadastre-se</li>
+      <li>2º passo: filtre pela cidade desejada e fique por dentro de tudo que rola por aqui!</li>
+    </ul>
+  </div>
+
+  <footer style="width: 100%; text-align: center; padding: 15px 0; background-color: #007bff; color: white; font-size: 14px; box-sizing: border-box;">
+    Desenvolvido por Wesley Pereira
+  </footer>
+</body>
+</html>
